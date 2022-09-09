@@ -16,12 +16,7 @@
 // 
 function getComputerChoice() {
     let choice = ['Rock', 'Paper', 'Scissors'];
-    function getRandom(choice) {
-        if (choice && choice.length) {
-            return choice[Math.floor(Math.random() * choice.length)];
-        }
-    }
-    let computerSelection = getRandom(choice);
+    let computerSelection = choice[Math.floor(Math.random() * choice.length)];
     return computerSelection;
 }
 function getPlayerChoice() {
@@ -31,11 +26,11 @@ function getPlayerChoice() {
     let playerSelection;
     return playerSelection;
 }
-function restartGame() {
-    // restart code here
-    // modal message "Would you like to play another game?" ??
-    // clear selections
-}
+// function restartGame() {
+// restart code here
+// modal message "Would you like to play another game?" ??
+// clear selections
+// }
 function singleRound(playerSelection, computerSelection) {
     let resultWin = "You win!! ";
     let resultLost = "You lost!! ";
