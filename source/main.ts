@@ -13,12 +13,16 @@
 // 
 // create Window.prompt(message, defaultValue) to get input from user
 // 
+
+
 function getComputerChoice() {
-    let computerSelection: string;
-    const rock: string; // strings or assign values for math?
-    const paper: string;
-    const scissors: string;
-    // randomization code here
+    let choice = ['Rock', 'Paper', 'Scissors'];
+    function getRandom (choice: any) {
+        if (choice && choice.length) {
+            return choice[Math.floor(Math.random() * choice.length)]
+        }
+    }
+    let computerSelection= getRandom(choice);
         return computerSelection;
 }
 function getPlayerChoice() { 
