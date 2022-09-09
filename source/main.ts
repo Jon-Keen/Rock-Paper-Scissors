@@ -13,5 +13,44 @@
 // 
 // create Window.prompt(message, defaultValue) to get input from user
 // 
+function getComputerChoice() {
+    let computerSelection: string;
+    const rock: string; // strings or assign values for math?
+    const paper: string;
+    const scissors: string;
+    // randomization code here
+        return computerSelection;
+}
+function getPlayerChoice() { 
+    // pull data from modal selection 
+    // 3 buttons for each choice?
+    // each button will invoke function return
+    let playerSelection: string;
+    return playerSelection;
+}
 
+function restartGame() {
+    // restart code here
+    // modal message "Would you like to play another game?" ??
+    // clear selections
+}
 
+function singleRound(playerSelection, computerSelection) { //add modal button for single game?
+    let resultWin:string = "You win!! ";
+    let resultLost: string = "You lost!! ";
+    return result
+}
+// SHOULD I CREATE A FUNCTION TO ASK SINGLE OR 5 ROUND GAME. THEN RETURN ANSWER? 
+// WOULD CREATE 1 FUNCTION FOR BOTH. Instead of singleRound() & playRound()?? Odin naming requirements seem odd. Change anyway??
+function playRound(playerSelection, computerSelection) {
+    // your code here!
+}
+    const playerSelection = getPlayerChoice();
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+
+function game(playRound) { //add modal button for 5 round game?
+    for (let i = 0; i < 5; i++) {
+        // your code here!
+    }
+}
