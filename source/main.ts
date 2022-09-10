@@ -1,10 +1,10 @@
 // Assignment layout
 // modal single/5 round >> player choice && computer choice >> results
-let playerSelection:string;
-let computerSelection:string;
-let computerScore:number = 0
-let playerScore:number = 0
-let roundWinner:string = ''
+let playerSelection;
+let computerSelection;
+let computerScore:number = 0;
+let playerScore:number = 0;
+let roundWinner:string = '';
 
 function getComputerChoice() {
     const choiceArray = ['Rock', 'Paper', 'Scissors'];
