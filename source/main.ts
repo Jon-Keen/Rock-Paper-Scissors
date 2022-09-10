@@ -1,6 +1,6 @@
 // Assignment layout
 // modal single/5 round >> player choice && computer choice >> results
-let playerSelection:any;
+let playerSelection:string;
 let computerSelection:string;
 let computerScore:number = 0
 let playerScore:number = 0
