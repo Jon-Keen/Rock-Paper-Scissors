@@ -1,6 +1,8 @@
 "use strict";
 // Assignment layout
 // modal single/5 round >> player choice && computer choice >> results
+let playerSelection;
+let computerSelection;
 let computerScore = 0;
 let playerScore = 0;
 let roundWinner = '';
@@ -10,12 +12,9 @@ function getComputerChoice() {
     return computerSelection;
 }
 function getPlayerChoice() {
-    const choiceArray = ['Rock', 'Paper', 'Scissors'];
-    let playerSelection = choiceArray[Math.floor(Math.random() * choiceArray.length)];
+    playerSelection = prompt('Rock, Paper, or Scissors?');
     return playerSelection;
 }
-let playerSelection = getPlayerChoice();
-let computerSelection = getComputerChoice();
 function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice().toLowerCase();
     playerSelection = getPlayerChoice().toLowerCase();
@@ -34,7 +33,6 @@ function playRound(playerSelection, computerSelection) {
         roundWinner = 'computer';
     }
 }
-console.log(playRound(playerSelection, computerSelection));
 // function singleRound(playerSelection, computerSelection) { //add modal button for single game?
 //     return result
 // }
