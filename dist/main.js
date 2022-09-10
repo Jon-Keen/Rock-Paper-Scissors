@@ -19,7 +19,7 @@ let computerSelection = getComputerChoice();
 function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice().toLowerCase();
     playerSelection = getPlayerChoice().toLowerCase();
-    if (playerSelection == computerSelection) {
+    if (playerSelection === computerSelection) {
     }
     if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
         (playerSelection === 'scissors' && computerSelection === 'paper') ||

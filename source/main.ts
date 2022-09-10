@@ -21,7 +21,7 @@ let computerSelection:string = getComputerChoice();
 function playRound(playerSelection:string, computerSelection:string) {
     computerSelection = getComputerChoice().toLowerCase();
     playerSelection = getPlayerChoice().toLowerCase();
-    if (playerSelection == computerSelection) {
+    if (playerSelection === computerSelection) {
     }
     if (
         (playerSelection === 'rock' && computerSelection === 'scissors') ||
