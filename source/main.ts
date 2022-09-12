@@ -1,25 +1,27 @@
 // Assignment layout
 // modal single/5 round >> player choice && computer choice >> results
-let playerSelection;
-let computerSelection;
+let playerSelection:any;
+let computerSelection:any;
 let computerScore:number = 0;
 let playerScore:number = 0;
 let roundWinner:string = '';
 
-function getComputerChoice() {
+function getComputerChoice():any {
     const choiceArray = ['Rock', 'Paper', 'Scissors'];
-    let computerSelection = choiceArray[Math.floor(Math.random() * choiceArray.length)];
-    return computerSelection;
+    computerSelection = choiceArray[Math.floor(Math.random() * choiceArray.length)];
+    return computerSelection.toLowerCase();
 }
-function getPlayerChoice() {
-    playerSelection = prompt('Rock, Paper, or Scissors?');
-    return playerSelection;
+function getPlayerChoice():any {
+    playerSelection = prompt('Rock, Paper, or Scissors?', 'Rock');
+    return playerSelection.toLowerCase();
 }
-
+// getComputerChoice();
+// getPlayerChoice();
 function playRound(playerSelection:string, computerSelection:string) {
-    computerSelection = getComputerChoice().toLowerCase();
-    playerSelection = getPlayerChoice().toLowerCase();
+    computerSelection = getComputerChoice().toLowerCase;
+    playerSelection = getPlayerChoice().toLowerCase;
     if (playerSelection === computerSelection) {
+        roundWinner = 'tie';
     }
     if (
         (playerSelection === 'rock' && computerSelection === 'scissors') ||
@@ -37,8 +39,9 @@ function playRound(playerSelection:string, computerSelection:string) {
         computerScore++
         roundWinner = 'computer'
     }
+    console.log(roundWinner, playerScore, computerScore);
 }
-
+playRound(playerSelection, computerSelection);
 // function singleRound(playerSelection, computerSelection) { //add modal button for single game?
 //     return result
 // }
