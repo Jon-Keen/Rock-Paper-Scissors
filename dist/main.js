@@ -19,31 +19,30 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice().toLowerCase();
     playerSelection = getPlayerChoice().toLowerCase();
     if (playerSelection === computerSelection) {
-        roundWinner = 'tie';
+        roundWinner = 'TIE ROUND!';
     }
     if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
         (playerSelection === 'scissors' && computerSelection === 'paper') ||
         (playerSelection === 'paper' && computerSelection === 'rock')) {
         playerScore++;
-        roundWinner = 'player';
+        roundWinner = 'PLAYER WINS ROUND!';
     }
     if ((computerSelection === 'rock' && playerSelection === 'scissors') ||
         (computerSelection === 'scissors' && playerSelection === 'paper') ||
-        (computerSelection === 'paper ' && playerSelection === 'rock')) {
+        (computerSelection === 'paper' && playerSelection === 'rock')) {
         computerScore++;
-        roundWinner = 'computer';
+        roundWinner = 'COMPUTER WINS ROUND!';
     }
     console.log(roundWinner, playerSelection, computerSelection);
 }
 function game() {
     for (let i = 0; i < 5; i++) {
-        getComputerChoice();
-        getPlayerChoice();
         playRound(playerSelection, computerSelection);
+        console.log(roundWinner, playerScore, computerScore);
     }
-    console.log(roundWinner, playerScore, computerScore);
+    // console.log(roundWinner, playerScore, computerScore);
 }
-game();
+// game();
 // playRound(playerSelection, computerSelection);
 // function singleRound(playerSelection, computerSelection) { //add modal button for single game?
 //     return result
