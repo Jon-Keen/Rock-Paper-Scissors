@@ -12,8 +12,15 @@ function getComputerChoice() {
     return computerSelection;
 }
 function getPlayerChoice() {
-    playerSelection = prompt('Rock, Paper, or Scissors?', 'Rock');
-    return playerSelection;
+    do {
+        playerSelection = prompt('Rock, Paper, or Scissors?', 'Rock');
+        if (playerSelection.toLowerCase() !== 'rock' || 'paper' || 'scissors') {
+            alert('Check spelling! Valid answers only.');
+        }
+        if (playerSelection.toLowerCase() == 'rock' || 'paper' || 'scissors') {
+            return playerSelection;
+        }
+    } while (playerSelection.toLowerCase() !== 'rock' || 'paper' || 'scissors');
 }
 function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice().toLowerCase();

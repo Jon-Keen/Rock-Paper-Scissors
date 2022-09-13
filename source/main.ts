@@ -12,10 +12,15 @@ function getComputerChoice():any {
     return computerSelection;
 }
 function getPlayerChoice():any {
-    playerSelection = prompt('Rock, Paper, or Scissors?', 'Rock');
-    return playerSelection;
+    do {playerSelection = prompt('Rock, Paper, or Scissors?', 'Rock');
+            if (playerSelection.toLowerCase() !== 'rock' || 'paper' || 'scissors') {
+                alert('Check spelling! Valid answers only.');
+            }
+            if (playerSelection.toLowerCase() == 'rock' || 'paper' || 'scissors'){
+                return playerSelection;
+            }
+        } while (playerSelection.toLowerCase() !== 'rock' || 'paper' || 'scissors');
 }
-
 function playRound(playerSelection:string, computerSelection:string) {
     computerSelection = getComputerChoice().toLowerCase();
     playerSelection = getPlayerChoice().toLowerCase();
@@ -27,16 +32,16 @@ function playRound(playerSelection:string, computerSelection:string) {
         (playerSelection === 'scissors' && computerSelection === 'paper') ||
         (playerSelection === 'paper' && computerSelection === 'rock')
     ) {
-        playerScore++
-        roundWinner = 'PLAYER WINS ROUND!'
+        playerScore++;
+        roundWinner = 'PLAYER WINS ROUND!';
     }
     if (
         (computerSelection === 'rock' && playerSelection === 'scissors') ||
         (computerSelection === 'scissors' && playerSelection === 'paper') ||
         (computerSelection === 'paper' && playerSelection === 'rock')
     ) {
-        computerScore++
-        roundWinner = 'COMPUTER WINS ROUND!'
+        computerScore++;
+        roundWinner = 'COMPUTER WINS ROUND!';
     }
     console.log(roundWinner, playerSelection, computerSelection);
 }
