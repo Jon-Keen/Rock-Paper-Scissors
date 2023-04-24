@@ -1,66 +1,40 @@
-// Assignment layout
-// modal single/5 round >> player choice && computer choice >> results
-// let playerSelection:any;
-// let computerSelection:any;
-// let computerScore:number = 0;
-// let playerScore:number = 0;
-// let roundWinner:string = '';
+// Attempting to use objects
 
-// function getComputerChoice():any {
-//     const choiceArray = ['Rock', 'Paper', 'Scissors'];
-//     computerSelection = choiceArray[Math.floor(Math.random() * choiceArray.length)];
-//     return computerSelection;
-// }
-// function getPlayerChoice():any {
-//     do {playerSelection = prompt('Rock, Paper, or Scissors?', 'Rock');
-//             if (playerSelection.toLowerCase() !== 'rock' || 'paper' || 'scissors') {
-//                 alert('Check spelling! Valid answers only.');
-//             }
-//             if (playerSelection.toLowerCase() == 'rock' || 'paper' || 'scissors'){
-//                 return playerSelection;
-//             }
-//         } while (playerSelection.toLowerCase() !== 'rock' || 'paper' || 'scissors');
-// }
-// function playRound(playerSelection:string, computerSelection:string) {
-//     computerSelection = getComputerChoice().toLowerCase();
-//     playerSelection = getPlayerChoice().toLowerCase();
-//     if (playerSelection === computerSelection) {
-//         roundWinner = 'TIE ROUND!';
-//     }
-//     if (
-//         (playerSelection === 'rock' && computerSelection === 'scissors') ||
-//         (playerSelection === 'scissors' && computerSelection === 'paper') ||
-//         (playerSelection === 'paper' && computerSelection === 'rock')
-//     ) {
-//         playerScore++;
-//         roundWinner = 'PLAYER WINS ROUND!';
-//     }
-//     if (
-//         (computerSelection === 'rock' && playerSelection === 'scissors') ||
-//         (computerSelection === 'scissors' && playerSelection === 'paper') ||
-//         (computerSelection === 'paper' && playerSelection === 'rock')
-//     ) {
-//         computerScore++;
-//         roundWinner = 'COMPUTER WINS ROUND!';
-//     }
-//     console.log(roundWinner, playerSelection, computerSelection);
-// }
-// function game() {
-//     for (let i = 0; i < 5; i++) {
-//         playRound(playerSelection, computerSelection);
-//         console.log(roundWinner, playerScore, computerScore);
-//     }
-// console.log(roundWinner, playerScore, computerScore);
-// }
-// game();
-// playRound(playerSelection, computerSelection);
-// function singleRound(playerSelection, computerSelection) { //add modal button for single game?
-//     return result
-// }
+const choices = {
+    rock: 'rock',
+    paper: 'paper',
+    scissors: 'scissors',
+}
 
 
-// function restartGame() {
-    // restart code here
-    // modal message "Would you like to play another game?" ??
-    // clear selections
-// }
+function getComputerChoice(): string {
+    const computerSelection = Object.keys(choices);
+    return computerSelection[Math.floor(Math.random() * computerSelection.length)];
+}
+
+function getPlayerChoice(): string {
+    let playerPrompt:any = prompt("Please enter 'Rock', 'Paper', or 'Scissors'?", 'Rock');
+    while (!Object.keys(choices).includes(playerPrompt.toLowerCase())) {
+        playerPrompt = prompt("'Rock', 'Paper', or 'Scissors' are valid answers only.");
+    }   return playerPrompt.toLowerCase();
+}
+
+let playerSelection:string = getPlayerChoice();
+let computerSelection:string = getComputerChoice();
+
+function playRound(playerSelection: string, computerSelection: string) {
+    let winner: any;
+    playerSelection = getPlayerChoice();
+    computerSelection = getComputerChoice();
+    console.log(`Player chose ${playerSelection}`);
+    console.log(`Computer chose ${computerSelection}`);
+    if (playerSelection === computerSelection) {
+        return 'TIE!';
+    } if (
+        (playerSelection === 'rock' && computerSelection === 'scissors') ||
+        (playerSelection === 'scissors' && computerSelection === 'paper') ||
+        (playerSelection === 'paper' && computerSelection === 'rock')) 
+        { winner = 'Player Wins Round!';
+    }   else winner = 'Computer Wins!'; 
+            return winner;
+}

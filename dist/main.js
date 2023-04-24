@@ -1,61 +1,38 @@
 "use strict";
-// Assignment layout
-// modal single/5 round >> player choice && computer choice >> results
-let playerSelection;
-let computerSelection;
-let computerScore = 0;
-let playerScore = 0;
-let roundWinner = '';
+// Attempting to use objects
+const choices = {
+    rock: 'rock',
+    paper: 'paper',
+    scissors: 'scissors',
+};
 function getComputerChoice() {
-    const choiceArray = ['Rock', 'Paper', 'Scissors'];
-    computerSelection = choiceArray[Math.floor(Math.random() * choiceArray.length)];
-    return computerSelection;
+    const computerSelection = Object.keys(choices);
+    return computerSelection[Math.floor(Math.random() * computerSelection.length)];
 }
 function getPlayerChoice() {
-    do {
-        playerSelection = prompt('Rock, Paper, or Scissors?', 'Rock');
-        if (playerSelection.toLowerCase() !== 'rock' || 'paper' || 'scissors') {
-            alert('Check spelling! Valid answers only.');
-        }
-        if (playerSelection.toLowerCase() == 'rock' || 'paper' || 'scissors') {
-            return playerSelection;
-        }
-    } while (playerSelection.toLowerCase() !== 'rock' || 'paper' || 'scissors');
+    let playerPrompt = prompt("Please enter 'Rock', 'Paper', or 'Scissors'?", 'Rock');
+    while (!Object.keys(choices).includes(playerPrompt.toLowerCase())) {
+        playerPrompt = prompt("'Rock', 'Paper', or 'Scissors' are valid answers only.");
+    }
+    return playerPrompt.toLowerCase();
 }
+let playerSelection = getPlayerChoice();
+let computerSelection = getComputerChoice();
 function playRound(playerSelection, computerSelection) {
-    computerSelection = getComputerChoice().toLowerCase();
-    playerSelection = getPlayerChoice().toLowerCase();
+    let winner;
+    playerSelection = getPlayerChoice();
+    computerSelection = getComputerChoice();
+    console.log(`Player chose ${playerSelection}`);
+    console.log(`Computer chose ${computerSelection}`);
     if (playerSelection === computerSelection) {
-        roundWinner = 'TIE ROUND!';
+        return 'TIE!';
     }
     if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
         (playerSelection === 'scissors' && computerSelection === 'paper') ||
         (playerSelection === 'paper' && computerSelection === 'rock')) {
-        playerScore++;
-        roundWinner = 'PLAYER WINS ROUND!';
+        winner = 'Player Wins Round!';
     }
-    if ((computerSelection === 'rock' && playerSelection === 'scissors') ||
-        (computerSelection === 'scissors' && playerSelection === 'paper') ||
-        (computerSelection === 'paper' && playerSelection === 'rock')) {
-        computerScore++;
-        roundWinner = 'COMPUTER WINS ROUND!';
-    }
-    console.log(roundWinner, playerSelection, computerSelection);
+    else
+        winner = 'Computer Wins!';
+    return winner;
 }
-function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound(playerSelection, computerSelection);
-        console.log(roundWinner, playerScore, computerScore);
-    }
-    // console.log(roundWinner, playerScore, computerScore);
-}
-// game();
-// playRound(playerSelection, computerSelection);
-// function singleRound(playerSelection, computerSelection) { //add modal button for single game?
-//     return result
-// }
-// function restartGame() {
-// restart code here
-// modal message "Would you like to play another game?" ??
-// clear selections
-// }
