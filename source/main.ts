@@ -13,16 +13,16 @@ function getComputerChoice(): string {
 }
 
 function getPlayerChoice(): string {
-    let playerPrompt:any = prompt("Please enter 'Rock', 'Paper', or 'Scissors'?", 'Rock');
-    while (!Object.keys(choices).includes(playerPrompt.toLowerCase())) {
-        playerPrompt = prompt("'Rock', 'Paper', or 'Scissors' are valid answers only.");
-    }   return playerPrompt.toLowerCase();
+    let playerSelection:any = prompt("Please enter 'Rock', 'Paper', or 'Scissors'?", 'Rock');
+    while (!Object.keys(choices).includes(playerSelection.toLowerCase())) {
+        playerSelection = prompt("'Rock', 'Paper', or 'Scissors' are valid answers only.");
+    }   return playerSelection.toLowerCase();
 }
 
-let playerSelection:string = getPlayerChoice();
-let computerSelection:string = getComputerChoice();
+// let playerSelection:string = getPlayerChoice();
+// let computerSelection:string = getComputerChoice();
 
-function playRound(playerSelection: string, computerSelection: string) {
+function playRound(playerSelection: string, computerSelection: string): any {
     let winner: any;
     playerSelection = getPlayerChoice();
     computerSelection = getComputerChoice();
