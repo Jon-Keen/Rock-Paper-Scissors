@@ -5,9 +5,15 @@ const choices = {
     paper: 'paper',
     scissors: 'scissors',
 };
+let playerScore = 0; // user score
+let computerScore = 0; // computer score
+let playerSelection = ''; // player selection
+let computerSelection = ''; // computer selection
+let winner = '';
 function getComputerChoice() {
-    const computerSelection = Object.keys(choices);
-    return computerSelection[Math.floor(Math.random() * computerSelection.length)];
+    // const computerSelection = Object.keys(choices);
+    // return computerSelection[Math.floor(Math.random() * computerSelection.length)];
+    return computerSelection = Object.keys(choices)[Math.floor(Math.random() * Object.keys(choices).length)]; // better way to use the object to randomly choose the selection
 }
 function getPlayerChoice() {
     let playerSelection = prompt("Please enter 'Rock', 'Paper', or 'Scissors'?", 'Rock');
@@ -16,10 +22,8 @@ function getPlayerChoice() {
     }
     return playerSelection.toLowerCase();
 }
-// let playerSelection:string = getPlayerChoice();
-// let computerSelection:string = getComputerChoice();
 function playRound(playerSelection, computerSelection) {
-    let winner;
+    // let winner: any;
     playerSelection = getPlayerChoice();
     computerSelection = getComputerChoice();
     console.log(`Player chose ${playerSelection}`);
@@ -30,9 +34,24 @@ function playRound(playerSelection, computerSelection) {
     if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
         (playerSelection === 'scissors' && computerSelection === 'paper') ||
         (playerSelection === 'paper' && computerSelection === 'rock')) {
-        winner = 'Player Wins Round!';
+        // winner = 'Player Wins Round!';
+        playerScore++;
+        return 'Player wins round!';
     }
     else
-        winner = 'Computer Wins!';
-    return winner;
+        computerScore++;
+    return 'Computer wins round!';
+}
+function game() {
+    for (let i = 0; i < 5; i++) {
+        playRound(playerSelection, computerSelection);
+    }
+    if (playerScore > computerScore) {
+        return 'Player wins game!';
+    }
+    else
+        console.log(playerScore, computerScore);
+    playerScore = 0;
+    computerScore = 0;
+    return 'Computer wins, you suck!';
 }
