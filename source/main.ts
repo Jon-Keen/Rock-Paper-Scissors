@@ -43,13 +43,18 @@ function playRound(playerSelection:string, computerSelection:string) {
 function game() {
     for (let i = 0; i < 5; i++){
     playRound(playerSelection, computerSelection);
+    } if (playerScore === computerScore) {
+        console.log(playerScore, computerScore);
+        playerScore = 0;
+        computerScore = 0;
+        return 'Tie game!!';
     } if (playerScore > computerScore) {
         console.log(playerScore, computerScore);
         playerScore = 0;
         computerScore = 0;
         return 'Player wins game!';
     } else console.log(playerScore, computerScore);
-    playerScore = 0;
-    computerScore = 0;
-    return 'Computer wins, you suck!';
+        playerScore = 0;
+        computerScore = 0;
+        return 'Computer wins, you suck!';
 }
