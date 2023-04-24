@@ -44,6 +44,9 @@ function game() {
         playRound(playerSelection, computerSelection);
     }
     if (playerScore > computerScore) {
+        console.log(playerScore, computerScore);
+        playerScore = 0;
+        computerScore = 0;
         return 'Player wins game!';
     }
     else
