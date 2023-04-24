@@ -7,11 +7,10 @@ const choices = {
 }
 let playerScore:number = 0; // user score
 let computerScore:number = 0; // computer score
-let playerSelection:any = ''; // player selection
-let computerSelection:any = ''; // computer selection
-let winner:any = '';
+let playerSelection:string = ''; // player selection
+let computerSelection:string = ''; // computer selection
 
-function getComputerChoice():any {
+function getComputerChoice():string {
     // const computerSelection = Object.keys(choices);
     // return computerSelection[Math.floor(Math.random() * computerSelection.length)];
     return computerSelection = Object.keys(choices)[Math.floor(Math.random() * Object.keys(choices).length)]; // better way to use the object to randomly choose the selection
@@ -24,8 +23,7 @@ function getPlayerChoice(): string {
     }   return playerSelection.toLowerCase();
 }
 
-function playRound(playerSelection:any, computerSelection:any) {
-    // let winner: any;
+function playRound(playerSelection:string, computerSelection:string) {
     playerSelection = getPlayerChoice();
     computerSelection = getComputerChoice();
     console.log(`Player chose ${playerSelection}`);
@@ -36,7 +34,6 @@ function playRound(playerSelection:any, computerSelection:any) {
         (playerSelection === 'rock' && computerSelection === 'scissors') ||
         (playerSelection === 'scissors' && computerSelection === 'paper') ||
         (playerSelection === 'paper' && computerSelection === 'rock')) { 
-            // winner = 'Player Wins Round!';
             playerScore++;
             return 'Player wins round!'
         } else computerScore++;
