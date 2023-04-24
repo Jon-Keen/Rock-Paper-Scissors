@@ -9,7 +9,6 @@ let playerScore = 0; // user score
 let computerScore = 0; // computer score
 let playerSelection = ''; // player selection
 let computerSelection = ''; // computer selection
-let winner = '';
 function getComputerChoice() {
     // const computerSelection = Object.keys(choices);
     // return computerSelection[Math.floor(Math.random() * computerSelection.length)];
@@ -23,7 +22,6 @@ function getPlayerChoice() {
     return playerSelection.toLowerCase();
 }
 function playRound(playerSelection, computerSelection) {
-    // let winner: any;
     playerSelection = getPlayerChoice();
     computerSelection = getComputerChoice();
     console.log(`Player chose ${playerSelection}`);
@@ -34,7 +32,6 @@ function playRound(playerSelection, computerSelection) {
     if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
         (playerSelection === 'scissors' && computerSelection === 'paper') ||
         (playerSelection === 'paper' && computerSelection === 'rock')) {
-        // winner = 'Player Wins Round!';
         playerScore++;
         return 'Player wins round!';
     }
