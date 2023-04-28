@@ -11,8 +11,6 @@ let playerSelection:string = ''; // player selection
 let computerSelection:string = ''; // computer selection
 
 function getComputerChoice():string {
-    // const computerSelection = Object.keys(choices);
-    // return computerSelection[Math.floor(Math.random() * computerSelection.length)];
     return computerSelection = Object.keys(choices)[Math.floor(Math.random() * Object.keys(choices).length)]; // better way to use the object to randomly choose the selection
 }
 
